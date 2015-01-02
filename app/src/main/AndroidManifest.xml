@@ -16,6 +16,54 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Army_Activity"
+            android:label="@string/title_activity_army_"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Defense_Activity"
+            android:label="@string/title_activity_defense_"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Others_Activity"
+            android:label="@string/title_activity_others_"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Resources_Activity"
+            android:label="@string/title_activity_resources_"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Traps_Activity"
+            android:label="@string/title_activity_traps_"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Troops_Activity"
+            android:label="@string/title_activity_troops_"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

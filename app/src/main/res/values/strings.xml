@@ -4,5 +4,11 @@
     <string name="app_name">COCGuide</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_army_">Army_Activity</string>
+    <string name="title_activity_defense_">Defense_Activity</string>
+    <string name="title_activity_others_">Others_Activity</string>
+    <string name="title_activity_resources_">Resources_Activity</string>
+    <string name="title_activity_traps_">Traps_Activity</string>
+    <string name="title_activity_troops_">Troops_Activity</string>
 
 </resources>

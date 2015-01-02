@@ -15,6 +15,16 @@
 
     <color name="windowBackgroundColor">#333333</color>
     <color name="black_translucent">#80000000</color>
+    <color name="White">#FFFFFF</color>
+    <color name="black">#000000</color>
+    
+    <!-- Translucent colors for frame backgrounds -->
+    <color name="trans_light_grey">#aaE0E0E0</color>
+    <color name="trans_red">#aaD50000</color>
+    <color name="trans_green">#aa1B5E20</color>
+    <color name="trans_grey">#aa424242</color>
+    <color name="trans_yellow">#aaFFAB00</color>
+    <color name="trans_greyblue">#aa263238</color>
 
 
 </resources>
