@@ -12,4 +12,24 @@
         android:background="?attr/colorPrimary"
         app:theme="@style/myCustomTheme"/>
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/troopsPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/white">
+
+    <android.support.v4.view.PagerTabStrip
+        android:id="@+id/pager_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@color/viewpager_background"
+        android:textColor="@color/colorPrimary"
+
+        />
+    </android.support.v4.view.ViewPager>
+    
 </RelativeLayout>

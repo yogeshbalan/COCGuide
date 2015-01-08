@@ -17,14 +17,26 @@
     <color name="black_translucent">#80000000</color>
     <color name="White">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="viewpager_background">#f5f8fa</color>
+    <color name="white">#FFFFFF</color>
     
-    <!-- Translucent colors for frame backgrounds -->
+    <!-- Translucent colors for frame backgrounds MainActivity -->
     <color name="trans_light_grey">#aaE0E0E0</color>
     <color name="trans_red">#aaD50000</color>
     <color name="trans_green">#aa1B5E20</color>
     <color name="trans_grey">#aa424242</color>
     <color name="trans_yellow">#aaFFAB00</color>
     <color name="trans_greyblue">#aa263238</color>
+    
+    <!-- for troops activity -->
+    <color name="trans_violet">#aa6A1B9A</color>
+    <color name="trans_brown">#aa795548</color>
+    
+    <!-- for resources activity -->
+    <color name="trans_pink">#aaF50057</color>
+    
+    <!-- for others activty -->
+    <color name="trans_orange">#aaE65100</color>
 
 
 </resources>

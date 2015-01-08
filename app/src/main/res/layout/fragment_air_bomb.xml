@@ -1,0 +1,23 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.yogesh.cocguide.fragments.AirBomb">
+
+    <FrameLayout
+        android:id="@+id/frameMinions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/trans_red"
+        >
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/imageButton_army"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/trap_airbomb"/>
+        </FrameLayout>
+
+</FrameLayout>

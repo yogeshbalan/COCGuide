@@ -10,5 +10,6 @@
     <string name="title_activity_resources_">Resources_Activity</string>
     <string name="title_activity_traps_">Traps_Activity</string>
     <string name="title_activity_troops_">Troops_Activity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -12,4 +12,24 @@
         android:background="?attr/colorPrimary"
         app:theme="@style/myCustomTheme"/>
 
+    <FrameLayout
+        android:id="@+id/frameMinions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/trans_red"
+        android:layout_below="@+id/toolbar">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/imageButton_army"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/army_clash_of_clans_cannons"
+            />
+    </FrameLayout>
+
+
 </RelativeLayout>

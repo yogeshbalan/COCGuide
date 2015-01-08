@@ -1,8 +1,8 @@
 package com.yogesh.cocguide;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +24,10 @@ public class MainActivity extends ActionBarActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.White));
         setSupportActionBar(toolbar);
 
-        
+        //final RippleBackground rippleBackground=(RippleBackground)findViewById(R.id.content);
+        //final RippleBackground rippleBackground2=(RippleBackground)findViewById(R.id.content2);
+
+
         army = (ImageButton)findViewById(R.id.army);
         defense = (ImageButton)findViewById(R.id.defense);
         others = (ImageButton)findViewById(R.id.others);
@@ -35,8 +38,10 @@ public class MainActivity extends ActionBarActivity {
         army.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //rippleBackground2.startRippleAnimation();
                 Intent armyIntent = new Intent(MainActivity.this, Army_Activity.class);
                 startActivity(armyIntent);
+                overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
             }
         });
         
@@ -45,6 +50,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent defenseIntent = new Intent(MainActivity.this, Defense_Activity.class);
                 startActivity(defenseIntent);
+                overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
             }
         });
         
@@ -53,6 +59,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent othersIntent = new Intent(MainActivity.this, Others_Activity.class);
                 startActivity(othersIntent);
+                overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
             }
         });
         
@@ -61,6 +68,7 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent resIntent = new Intent(MainActivity.this, Resources_Activity.class);
                 startActivity(resIntent);
+                overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
             }
         });
         
@@ -69,14 +77,17 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent trapIntent = new Intent(MainActivity.this, Traps_Activity.class);
                 startActivity(trapIntent);
+                overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
             }
         });
-        
+
         troops.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //rippleBackground.startRippleAnimation();
                 Intent troopIntent = new Intent(MainActivity.this, Troops_Activity.class);
                 startActivity(troopIntent);
+                overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
             }
         });
 

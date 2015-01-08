@@ -1,7 +1,6 @@
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content">
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,12 +18,48 @@
         android:background="?attr/colorPrimary"
         app:theme="@style/myCustomTheme"/>
 
+
+
     <FrameLayout
         android:id="@+id/f1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_below="@+id/toolbar"
+        android:background="@color/trans_greyblue"
+        >
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:scaleType="center"
+            android:background="@drawable/rsz_main_troops"
+            android:id="@+id/troops" />
+
+    </FrameLayout>
+
+
+    <com.skyfishjy.library.RippleBackground
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content2"
+        app:rb_color="#D50000"
+        app:rb_radius="132dp"
+        app:rb_rippleAmount="24"
+        app:rb_duration="3000"
+        app:rb_scale="32"
+        android:layout_below="@+id/f1">
+    <FrameLayout
+        android:id="@+id/f2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@+id/content"
         android:background="@color/trans_red"
         >
 
@@ -37,15 +72,17 @@
             android:id="@+id/army" />
 
     </FrameLayout>
+    </com.skyfishjy.library.RippleBackground>
+
 
     <FrameLayout
-        android:id="@+id/f2"
+        android:id="@+id/f3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_below="@+id/f1"
+        android:layout_below="@+id/content2"
         android:background="@color/trans_green"
         >
 
@@ -60,27 +97,6 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/f3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_below="@+id/f2"
-        android:background="@color/trans_grey"
-        >
-
-        <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom|center_horizontal"
-            android:scaleType="center"
-            android:background="@drawable/rsz_main_others"
-            android:id="@+id/others" />
-
-    </FrameLayout>
-
-    <FrameLayout
         android:id="@+id/f4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -89,6 +105,7 @@
         android:layout_marginRight="5dp"
         android:layout_below="@+id/f3"
         android:background="@color/trans_yellow"
+        android:foreground="?android:attr/selectableItemBackground"
         >
 
         <ImageButton
@@ -129,7 +146,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_below="@+id/f5"
-        android:background="@color/trans_greyblue"
+        android:background="@color/trans_grey"
         >
 
         <ImageButton
@@ -137,8 +154,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center_horizontal"
             android:scaleType="center"
-            android:background="@drawable/rsz_main_troops"
-            android:id="@+id/troops" />
+            android:background="@drawable/rsz_main_others"
+            android:id="@+id/others" />
 
     </FrameLayout>
  
