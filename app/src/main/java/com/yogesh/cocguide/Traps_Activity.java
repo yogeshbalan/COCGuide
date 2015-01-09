@@ -1,19 +1,31 @@
 package com.yogesh.cocguide;
 
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.yogesh.cocguide.adapters.TrapsPagerAdapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 public class Traps_Activity extends ActionBarActivity {
     
     private Toolbar toolbar;
-    TrapsPagerAdapter mAdapter;
+    //TrapsPagerAdapter mAdapter;
+    private static String titles[] = {"Spinning Trap",
+            "Bomb",
+            "Air bomb",
+            "Giant bomb",
+            "Seeking Air Mine",
+            "Skeleton trap"
+
+    };
+    ListView mListview;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +39,36 @@ public class Traps_Activity extends ActionBarActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
+        /*
         mAdapter = new TrapsPagerAdapter(getSupportFragmentManager());
-
         ViewPager vpPager = (ViewPager) findViewById(R.id.trapsPager);
         vpPager.setAdapter(mAdapter);
+        */
+
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this,R.layout.row_item, R.id.row_text, titles);
+        mListview = (ListView) findViewById(R.id.listView_traps);
+        mListview.setAdapter(arrayAdapter);
+        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                String value = (String)parent.getItemAtPosition(position);
+
+                if(value=="Normal Troops"){
+                    Intent mIntent = new Intent(Traps_Activity.this, NormalTroops.class);
+                    startActivity(mIntent);
+                    overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
+                }
+                else if (value=="Dark Troops"){
+                    Intent mIntent = new Intent(Traps_Activity.this, Darktroops.class);
+                    startActivity(mIntent);
+                    overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
+
+                }
+            }
+        });
         
     }
 

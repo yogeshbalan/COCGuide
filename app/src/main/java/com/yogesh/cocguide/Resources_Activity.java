@@ -1,19 +1,29 @@
 package com.yogesh.cocguide;
 
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.yogesh.cocguide.adapters.ResPagerAdapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 public class Resources_Activity extends ActionBarActivity {
     
     private Toolbar toolbar;
-    ResPagerAdapter mAdapter;
+    //ResPagerAdapter mAdapter;
+    private static String titles[] = {"Elixir Collector",
+            "Elixir Storage",
+            "Gold Mine",
+            "Gold Storage",
+            "Dark Elixir Drill",
+            "Dark Elixir Storage"
+    };
+    ListView mListview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +37,35 @@ public class Resources_Activity extends ActionBarActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
+        /*
         mAdapter = new ResPagerAdapter(getSupportFragmentManager());
-
         ViewPager vpPager = (ViewPager) findViewById(R.id.resPager);
         vpPager.setAdapter(mAdapter);
+        */
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this,R.layout.row_item, R.id.row_text, titles);
+        mListview = (ListView) findViewById(R.id.listView_resources);
+        mListview.setAdapter(arrayAdapter);
+        mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                String value = (String)parent.getItemAtPosition(position);
+
+                if(value=="Normal Troops"){
+                    Intent mIntent = new Intent(Resources_Activity.this, NormalTroops.class);
+                    startActivity(mIntent);
+                    overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
+                }
+                else if (value=="Dark Troops"){
+                    Intent mIntent = new Intent(Resources_Activity.this, Darktroops.class);
+                    startActivity(mIntent);
+                    overridePendingTransition(R.anim.slide_out, R.anim.fade_out);
+
+                }
+            }
+        });
         
     }
 

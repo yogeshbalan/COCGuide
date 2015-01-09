@@ -64,6 +64,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.yogesh.cocguide.MainActivity" />
         </activity>
+        <activity
+            android:name=".NormalTroops"
+            android:label="@string/title_activity_normal_troops"
+            android:parentActivityName=".Troops_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.Troops_Activity" />
+        </activity>
+        <activity
+            android:name=".Darktroops"
+            android:label="@string/title_activity_darktroops"
+            android:parentActivityName=".Troops_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.Troops_Activity" />
+        </activity>
+        <activity
+            android:name=".Heroes"
+            android:label="@string/title_activity_heroes"
+            android:parentActivityName=".Army_Activity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.yogesh.cocguide.Army_Activity" />
+        </activity>
     </application>
 
 </manifest>
