@@ -19,7 +19,7 @@
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
         android:divider="@android:color/transparent"
-        android:dividerHeight="7dp"
+        android:dividerHeight="5dp"
         android:padding="10dp"/>
 
 
