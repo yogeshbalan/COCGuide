@@ -1,13 +1,7 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@color/White"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -16,9 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        app:theme="@style/myCustomTheme"/>
+        app:theme="@style/myCustomTheme">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp"
+        android:layout_gravity="center|left"
+        android:id="@+id/toolbar_title" />
+    </android.support.v7.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar">
+        
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
     <FrameLayout
         android:id="@+id/f1"
@@ -158,7 +169,8 @@
             android:id="@+id/others" />
 
     </FrameLayout>
- 
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
-</ScrollView>
+

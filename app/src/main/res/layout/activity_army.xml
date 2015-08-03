@@ -10,7 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
-        app:theme="@style/myCustomTheme"/>
+        app:theme="@style/myCustomTheme" >
+
+    </android.support.v7.widget.Toolbar>
+
 
     <ListView
         android:layout_width="match_parent"
@@ -22,4 +25,5 @@
         android:dividerHeight="7dp"
         android:padding="10dp"/>
 
+    
 </RelativeLayout>

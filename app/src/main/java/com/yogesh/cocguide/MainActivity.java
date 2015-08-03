@@ -1,28 +1,72 @@
 package com.yogesh.cocguide;
 
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.yogesh.cocguide.adapters.NotifyScrollView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements NotifyScrollView.Callback {
 
     private Toolbar toolbar;
     private ImageButton army, defense, others, resources, traps, troops;
+    private TextView toolTitle;
+    private CharSequence mtitle;
 
+    //this is it
+    private NotifyScrollView mNotifyScrollView;
+    private FrameLayout mImageFrameLayout;
+    private ImageView mImageView;
+    private LinearLayout mContentLinearLayout;
+    private LinearLayout mToolbarLinearLayout;
+    //yep
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_substituted);
+
+        Typeface type = Typeface.createFromAsset(getAssets(), "Supercell-Magic_5.ttf");
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar.setTitle("COC Guide");
+        
         toolbar.setTitleTextColor(getResources().getColor(R.color.White));
+        toolTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+        mtitle = "COC Guide";
+        toolTitle.setText(mtitle);
+        toolTitle.setTypeface(type);
+        toolTitle.setTextColor(getResources().getColor(R.color.white));
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        //new
+        mNotifyScrollView = (NotifyScrollView) findViewById(R.id.notify_scroll_view);
+        mImageFrameLayout = (FrameLayout) findViewById(R.id.image_frame_layout);
+        mImageView = (ImageView) findViewById(R.id.image_view);
+        mContentLinearLayout = (LinearLayout) findViewById(R.id.content_linear_layout);
+        mToolbarLinearLayout = (LinearLayout) findViewById(R.id.toolbar_linear_layout);
+        //end
+
+        // more setup
+        setupNotifyScrollView();
+        //setupToolbar();
+
 
         //final RippleBackground rippleBackground=(RippleBackground)findViewById(R.id.content);
         //final RippleBackground rippleBackground2=(RippleBackground)findViewById(R.id.content2);
@@ -115,4 +159,68 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //toolbar methods
+    private void setupNotifyScrollView() {
+        mNotifyScrollView.setCallback(this);
+
+        ViewTreeObserver viewTreeObserver = mNotifyScrollView.getViewTreeObserver();
+        if (viewTreeObserver.isAlive()) {
+            viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    // get size
+                    int toolbarLinearLayoutHeight = mToolbarLinearLayout.getHeight();
+                    int imageHeight = mImageView.getHeight();
+
+                    // adjust image frame layout height
+                    ViewGroup.LayoutParams layoutParams = mImageFrameLayout.getLayoutParams();
+                    if (layoutParams.height != imageHeight) {
+                        layoutParams.height = imageHeight;
+                        mImageFrameLayout.setLayoutParams(layoutParams);
+                    }
+
+                    // adjust top margin of content linear layout
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) mContentLinearLayout.getLayoutParams();
+                    if (marginLayoutParams.topMargin != toolbarLinearLayoutHeight + imageHeight) {
+                        marginLayoutParams.topMargin = toolbarLinearLayoutHeight + imageHeight;
+                        mContentLinearLayout.setLayoutParams(marginLayoutParams);
+                    }
+
+                    // call onScrollChange to update initial properties.
+                    onScrollChanged(0, 0, 0, 0);
+                }
+            });
+        }
+    }
+
+    private void setupToolbar() {
+        // set ActionBar as Toolbar
+        //setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public void onScrollChanged(int left, int top, int oldLeft, int oldTop) {
+        // get scroll y
+        int scrollY = mNotifyScrollView.getScrollY();
+
+        // calculate new y (for toolbar translation)
+        float newY = Math.max(mImageView.getHeight(), scrollY);
+
+        // translate toolbar linear layout and image frame layout
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            mToolbarLinearLayout.setTranslationY(newY);
+            mImageFrameLayout.setTranslationY(scrollY * 0.5f);
+            /* toolbar.getBackground().setAlpha((int)(newY*0.5f)); */
+            
+        } else {
+            ViewCompat.setTranslationY(mToolbarLinearLayout, newY);
+            ViewCompat.setTranslationY(mImageFrameLayout, scrollY * 0.5f);
+            
+        }
+    }
+
+    //end
+
+
 }
